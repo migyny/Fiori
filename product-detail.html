@@ -54,19 +54,19 @@
         <!-- Rating -->
         <div class="rating-section">
           <div class="stars">
-            <svg class="star" viewBox="0 0 29 29" fill="#717171">
+            <svg class="star" data-rating="1" viewBox="0 0 29 29" fill="#717171" onclick="setRating(1)" onmouseover="hoverRating(1)" onmouseout="resetHover()">
               <path d="M14.5 2L18.5 10.5L27.5 12L21 18.5L22.5 27.5L14.5 23L6.5 27.5L8 18.5L1.5 12L10.5 10.5L14.5 2Z"/>
             </svg>
-            <svg class="star" viewBox="0 0 29 29" fill="#717171">
+            <svg class="star" data-rating="2" viewBox="0 0 29 29" fill="#717171" onclick="setRating(2)" onmouseover="hoverRating(2)" onmouseout="resetHover()">
               <path d="M14.5 2L18.5 10.5L27.5 12L21 18.5L22.5 27.5L14.5 23L6.5 27.5L8 18.5L1.5 12L10.5 10.5L14.5 2Z"/>
             </svg>
-            <svg class="star" viewBox="0 0 29 29" fill="#717171">
+            <svg class="star" data-rating="3" viewBox="0 0 29 29" fill="#717171" onclick="setRating(3)" onmouseover="hoverRating(3)" onmouseout="resetHover()">
               <path d="M14.5 2L18.5 10.5L27.5 12L21 18.5L22.5 27.5L14.5 23L6.5 27.5L8 18.5L1.5 12L10.5 10.5L14.5 2Z"/>
             </svg>
-            <svg class="star" viewBox="0 0 29 29" fill="#717171">
+            <svg class="star" data-rating="4" viewBox="0 0 29 29" fill="#717171" onclick="setRating(4)" onmouseover="hoverRating(4)" onmouseout="resetHover()">
               <path d="M14.5 2L18.5 10.5L27.5 12L21 18.5L22.5 27.5L14.5 23L6.5 27.5L8 18.5L1.5 12L10.5 10.5L14.5 2Z"/>
             </svg>
-            <svg class="star" viewBox="0 0 29 29" fill="#717171">
+            <svg class="star" data-rating="5" viewBox="0 0 29 29" fill="#717171" onclick="setRating(5)" onmouseover="hoverRating(5)" onmouseout="resetHover()">
               <path d="M14.5 2L18.5 10.5L27.5 12L21 18.5L22.5 27.5L14.5 23L6.5 27.5L8 18.5L1.5 12L10.5 10.5L14.5 2Z"/>
             </svg>
           </div>
@@ -135,7 +135,7 @@
   <div class="shop-more-section">
     <h2 class="section-title">Shop More!</h2>
     <div class="products-grid">
-      <div class="product-card">
+      <div class="product-card" onclick="goToProduct(1)">
         <div class="product-image"></div>
         <div class="quick-view">Quick view</div>
         <div class="product-name">Dark Fuchsia Bouquet</div>
@@ -144,7 +144,7 @@
           <span class="price-value">$55</span>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" onclick="goToProduct(2)">
         <div class="product-image"></div>
         <div class="quick-view">Quick view</div>
         <div class="product-name">Autumn Sunflower Bouquet</div>
@@ -153,7 +153,7 @@
           <span class="price-value">$65</span>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" onclick="goToProduct(3)">
         <div class="product-image"></div>
         <div class="quick-view">Quick view</div>
         <div class="product-name">Red Assorted Bouquet</div>
@@ -334,11 +334,12 @@
     };
 
     let qty = 1;
+    let userRating = 0;
 
     // Get product ID from URL
     function getProductId() {
       const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get('id') || '1'; // Default to product 1
+      return urlParams.get('id') || '1';
     }
 
     // Load product data
@@ -362,6 +363,33 @@
       loadProduct();
     };
 
+    // Star Rating Functions
+    function setRating(rating) {
+      userRating = rating;
+      updateStars(rating);
+      console.log('User rated:', rating, 'stars');
+    }
+
+    function hoverRating(rating) {
+      updateStars(rating);
+    }
+
+    function resetHover() {
+      updateStars(userRating);
+    }
+
+    function updateStars(rating) {
+      const stars = document.querySelectorAll('.star');
+      stars.forEach((star, index) => {
+        if (index < rating) {
+          star.setAttribute('fill', '#FFD700');
+        } else {
+          star.setAttribute('fill', '#717171');
+        }
+      });
+    }
+
+    // Quantity Functions
     function increaseQty() {
       qty++;
       document.getElementById('quantity').textContent = qty;
@@ -374,6 +402,7 @@
       }
     }
 
+    // Accordion Function
     function toggleAccordion(index) {
       const content = document.getElementById(`content-${index}`);
       const icon = document.getElementById(`icon-${index}`);
@@ -382,7 +411,6 @@
         content.style.maxHeight = null;
         icon.classList.remove('open');
       } else {
-        // Close all other accordions
         document.querySelectorAll('.accordion-content').forEach((item, i) => {
           if (i !== index) {
             item.style.maxHeight = null;
@@ -395,13 +423,18 @@
       }
     }
 
+    // Navigation Functions
     function navigateTo(section) {
       console.log('Navigating to:', section);
       if (section === 'catalog') {
-        window.location.href = 'catalog.html';
+        window.location.href = 'catalogue.html';
       } else {
         window.location.href = 'index.html';
       }
+    }
+
+    function goToProduct(productId) {
+      window.location.href = `product-detail.html?id=${productId}`;
     }
   </script>
 </body>
