@@ -120,7 +120,6 @@ class ShoppingCart {
 
     container.innerHTML = this.items.map(item => `
       <div class="cart-item">
-        <div class="cart-item-image"></div>
         <div class="cart-item-details">
           <h3 class="cart-item-name">${item.name}</h3>
           <p class="cart-item-price">${item.price}</p>
