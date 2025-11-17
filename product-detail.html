@@ -9,15 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Rosarivo:ital@0;1&family=Public+Sans:wght@300;400;500;700&family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="product-detail.css">
 <link rel="stylesheet" href="cart.css">
-
 </head>
 <body>
   <!-- Top Banner -->
   <div class="top-banner">
     Free Same Day Delivery for Orders Over $44.99. *Exclusions Apply.
   </div>
-  <!-- cart -->
-  <script src="cart.js"></script>
+
   <!-- Header -->
   <div class="header">
     <div class="header-content">
@@ -39,12 +37,11 @@
         <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
       </svg>
       <div class="cart-icon-wrapper" onclick="openCart()" style="cursor: pointer;">
-  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-    <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-  </svg>
-  <span id="cart-badge">0</span>
-</div>
-      </svg>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+          <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        <span id="cart-badge">0</span>
+      </div>
     </div>
   </div>
 
@@ -90,7 +87,7 @@
             <span class="quantity" id="quantity">1</span>
             <button class="qty-btn" onclick="increaseQty()">+</button>
           </div>
-          <button class="add-to-cart-btn">Add to cart</button>
+          <button class="add-to-cart-btn" onclick="addToCartFromDetail()">Add to cart</button>
         </div>
 
         <!-- Accordion Sections -->
@@ -239,6 +236,10 @@
     </div>
   </div>
 
+  <!-- Load cart.js FIRST -->
+  <script src="cart.js"></script>
+  
+  <!-- Then load page scripts -->
   <script>
     // Product Database
     const products = {
@@ -369,6 +370,25 @@
     window.onload = function() {
       loadProduct();
     };
+
+    // Add to cart function
+    function addToCartFromDetail() {
+      const productId = getProductId();
+      const quantity = parseInt(document.getElementById('quantity').textContent);
+      
+      const product = products[productId];
+      
+      if (product && typeof cart !== 'undefined') {
+        cart.addItem({
+          id: productId,
+          name: product.name,
+          price: product.price,
+          quantity: quantity
+        });
+        
+        openCart();
+      }
+    }
 
     // Star Rating Functions
     function setRating(rating) {
