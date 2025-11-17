@@ -242,227 +242,270 @@
   <!-- Then load page scripts -->
   <script>
     // Product Database
-    const products = {
-      1: {
-        name: "Dark Fuchsia Bouquet",
-        price: "$55.00",
-        reviews: 18,
-        description: "Our Dark Fuchsia Bouquet features a stunning arrangement of deep magenta blooms that bring elegance and sophistication to any space. Hand-selected flowers are expertly arranged to create a perfect balance of color and texture.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island. We ensure your flowers arrive fresh and beautifully presented.",
-        vaseLife: "With proper care, your Dark Fuchsia Bouquet will last 7-10 days. Keep flowers in fresh water, trim stems every 2-3 days, and place in a cool location away from direct sunlight."
-      },
-      2: {
-        name: "Autumn Sunflower Bouquet",
-        price: "$65.00",
-        reviews: 24,
-        description: "Bright and cheerful sunflowers combined with seasonal autumn blooms create a warm and inviting arrangement. Perfect for bringing sunshine into any room.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
-        vaseLife: "Sunflowers typically last 7-12 days with proper care. Change water daily and keep away from direct heat sources."
-      },
-      3: {
-        name: "Red Assorted Bouquet",
-        price: "$45.00",
-        reviews: 15,
-        description: "A passionate mix of red blooms featuring roses, carnations, and seasonal flowers. Perfect for expressing love and admiration.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
-        vaseLife: "This bouquet will last 5-8 days with proper care. Trim stems at an angle and change water every 2 days."
-      },
-      4: {
-        name: "Spring Garden Mix",
-        price: "$50.00",
-        reviews: 12,
-        description: "A delightful collection of spring blooms including tulips, daffodils, and hyacinths that capture the essence of the season.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
-        vaseLife: "Spring flowers last 5-7 days. Keep in cool water and away from direct sunlight."
-      },
-      5: {
-        name: "White Rose Elegance",
-        price: "$70.00",
-        reviews: 28,
-        description: "Timeless and elegant, this arrangement features premium white roses accented with delicate greenery. Perfect for weddings and special occasions.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
-        vaseLife: "White roses last 7-10 days with proper care. Remove any leaves below water line and change water every 2-3 days."
-      },
-      6: {
-        name: "Tropical Paradise",
-        price: "$85.00",
-        reviews: 20,
-        description: "Exotic tropical flowers including birds of paradise, orchids, and anthuriums create a stunning, bold arrangement.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
-        vaseLife: "Tropical flowers are long-lasting, typically 10-14 days. Mist daily and keep in a warm location."
-      },
-      7: {
-        name: "Lavender Dreams",
-        price: "$60.00",
-        reviews: 16,
-        description: "Soothing lavender blooms combined with purple and white flowers create a calming and aromatic arrangement.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
-        vaseLife: "Lavender arrangements last 7-9 days. Keep in cool water and enjoy the natural aromatherapy benefits."
-      },
-      8: {
-        name: "Pink Peony Collection",
-        price: "$75.00",
-        reviews: 31,
-        description: "Luxurious peonies in soft pink shades create a romantic and elegant display. A customer favorite for its beauty and fragrance.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
-        vaseLife: "Peonies last 5-7 days. They prefer cool temperatures and fresh water changes every 2 days."
-      },
-      9: {
-        name: "Wildflower Medley",
-        price: "$40.00",
-        reviews: 10,
-        description: "A charming mix of wildflowers and meadow blooms that bring a rustic, natural beauty to any space.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
-        vaseLife: "Wildflowers last 5-7 days. Keep stems trimmed and water fresh for best results."
-      },
-      10: {
-        name: "Classic Red Roses",
-        price: "$80.00",
-        reviews: 42,
-        description: "A timeless arrangement of premium long-stem red roses. The perfect way to express love and romance.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
-        vaseLife: "Red roses last 7-10 days with proper care. Remove thorns carefully and change water every 2-3 days."
-      },
-      11: {
-        name: "Sunset Bouquet",
-        price: "$55.00",
-        reviews: 14,
-        description: "Warm orange and yellow blooms reminiscent of a beautiful sunset. Features roses, gerberas, and lilies.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
-        vaseLife: "This arrangement lasts 7-9 days. Keep in indirect sunlight and change water regularly."
-      },
-      12: {
-        name: "Garden Romance",
-        price: "$65.00",
-        reviews: 19,
-        description: "A romantic garden-style arrangement with roses, ranunculus, and lisianthus in soft pastel shades.",
-        delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
-        vaseLife: "Garden flowers last 6-9 days. Trim stems at an angle and keep water fresh."
-      }
-    };
-
-    let qty = 1;
-    let userRating = 0;
-
-    // Get product ID from URL
-    function getProductId() {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get('id') || '1';
+const products = {
+    1: {
+      name: "Dark Fuchsia Bouquet",
+      price: "$55.00",
+      reviews: 18,
+      description: "Our Dark Fuchsia Bouquet features a stunning arrangement of deep magenta blooms that bring elegance and sophistication to any space. Hand-selected flowers are expertly arranged to create a perfect balance of color and texture.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island. We ensure your flowers arrive fresh and beautifully presented.",
+      vaseLife: "With proper care, your Dark Fuchsia Bouquet will last 7-10 days. Keep flowers in fresh water, trim stems every 2-3 days, and place in a cool location away from direct sunlight.",
+      image: "3.png"
+    },
+    2: {
+      name: "Autumn Sunflower Bouquet",
+      price: "$65.00",
+      reviews: 24,
+      description: "Bright and cheerful sunflowers combined with seasonal autumn blooms create a warm and inviting arrangement. Perfect for bringing sunshine into any room.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
+      vaseLife: "Sunflowers typically last 7-12 days with proper care. Change water daily and keep away from direct heat sources.",
+      image: "4.png"
+    },
+    3: {
+      name: "Red Assorted Bouquet",
+      price: "$45.00",
+      reviews: 15,
+      description: "A passionate mix of red blooms featuring roses, carnations, and seasonal flowers. Perfect for expressing love and admiration.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
+      vaseLife: "This bouquet will last 5-8 days with proper care. Trim stems at an angle and change water every 2 days.",
+      image: "5.png"
+    },
+    4: {
+      name: "Spring Garden Mix",
+      price: "$50.00",
+      reviews: 12,
+      description: "A delightful collection of spring blooms including tulips, daffodils, and hyacinths that capture the essence of the season.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
+      vaseLife: "Spring flowers last 5-7 days. Keep in cool water and away from direct sunlight.",
+      image: "spring-mix.png"
+    },
+    5: {
+      name: "White Rose Elegance",
+      price: "$70.00",
+      reviews: 28,
+      description: "Timeless and elegant, this arrangement features premium white roses accented with delicate greenery. Perfect for weddings and special occasions.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
+      vaseLife: "White roses last 7-10 days with proper care. Remove any leaves below water line and change water every 2-3 days.",
+      image: "whiterose.jfif"
+    },
+    6: {
+      name: "Tropical Paradise",
+      price: "$85.00",
+      reviews: 20,
+      description: "Exotic tropical flowers including birds of paradise, orchids, and anthuriums create a stunning, bold arrangement.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
+      vaseLife: "Tropical flowers are long-lasting, typically 10-14 days. Mist daily and keep in a warm location.",
+      image: "tropical.jfif"
+    },
+    7: {
+      name: "Lavender Dreams",
+      price: "$60.00",
+      reviews: 16,
+      description: "Soothing lavender blooms combined with purple and white flowers create a calming and aromatic arrangement.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
+      vaseLife: "Lavender arrangements last 7-9 days. Keep in cool water and enjoy the natural aromatherapy benefits.",
+      image: "lavender.jfif"
+    },
+    8: {
+      name: "Pink Peony Collection",
+      price: "$75.00",
+      reviews: 31,
+      description: "Luxurious peonies in soft pink shades create a romantic and elegant display. A customer favorite for its beauty and fragrance.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
+      vaseLife: "Peonies last 5-7 days. They prefer cool temperatures and fresh water changes every 2 days.",
+      image: "peony.jfif"
+    },
+    9: {
+      name: "Wildflower Medley",
+      price: "$40.00",
+      reviews: 10,
+      description: "A charming mix of wildflowers and meadow blooms that bring a rustic, natural beauty to any space.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
+      vaseLife: "Wildflowers last 5-7 days. Keep stems trimmed and water fresh for best results.",
+      image: "wildflower.jfif"
+    },
+    10: {
+      name: "Classic Red Roses",
+      price: "$80.00",
+      reviews: 42,
+      description: "A timeless arrangement of premium long-stem red roses. The perfect way to express love and romance.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
+      vaseLife: "Red roses last 7-10 days with proper care. Remove thorns carefully and change water every 2-3 days.",
+      image: "redroses.jfif"
+    },
+    11: {
+      name: "Sunset Bouquet",
+      price: "$55.00",
+      reviews: 14,
+      description: "Warm orange and yellow blooms reminiscent of a beautiful sunset. Features roses, gerberas, and lilies.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
+      vaseLife: "This arrangement lasts 7-9 days. Keep in indirect sunlight and change water regularly.",
+      image: "sunset.jfif"
+    },
+    12: {
+      name: "Garden Romance",
+      price: "$65.00",
+      reviews: 19,
+      description: "A romantic garden-style arrangement with roses, ranunculus, and lisianthus in soft pastel shades.",
+      delivery: "Free same-day delivery available for orders placed before 2 PM. Standard delivery takes 2-4 hours within Staten Island.",
+      vaseLife: "Garden flowers last 6-9 days. Trim stems at an angle and keep water fresh.",
+      image: "gardenromance.jfif"
     }
+  };
 
-    // Load product data
-    function loadProduct() {
-      const productId = getProductId();
+
+  let qty = 1;
+  let userRating = 0;
+
+
+  // Get product ID from URL (product-detail.html?id=1,2,...,12)
+  function getProductId() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('id') || '1';
+  }
+
+
+  // Load product data + main image
+  function loadProduct() {
+    const productId = getProductId();
+    const product = products[productId];
+
+
+    if (!product) return;
+
+
+    document.querySelector('.product-title').textContent = product.name;
+    document.querySelector('.price').textContent = product.price;
+    document.querySelector('.review-count').textContent = `${product.reviews} reviews`;
+    document.querySelector('#content-0 p').textContent = product.description;
+    document.querySelector('#content-1 p').textContent = product.delivery;
+    document.querySelector('#content-2 p').textContent = product.vaseLife;
+    document.title = `${product.name} - Fiori`;
+
+
+    // 🔹 Main big image
+    const mainImage = document.querySelector('.product-main-image');
+    if (mainImage && product.image) {
+      mainImage.style.backgroundImage = `url('${product.image}')`;
+      mainImage.style.backgroundSize = 'cover';
+      mainImage.style.backgroundPosition = 'center';
+      mainImage.style.backgroundRepeat = 'no-repeat';
+    }
+  }
+
+
+  // Load images into the three "Shop More" cards
+  function loadShopMoreImages() {
+    const cards = document.querySelectorAll('.product-card');
+
+
+    cards.forEach((card, index) => {
+      // First card → product 1, second → 2, etc.
+      const productId = index + 1;
       const product = products[productId];
-      
-      if (product) {
-        document.querySelector('.product-title').textContent = product.name;
-        document.querySelector('.price').textContent = product.price;
-        document.querySelector('.review-count').textContent = `${product.reviews} reviews`;
-        document.querySelector('#content-0 p').textContent = product.description;
-        document.querySelector('#content-1 p').textContent = product.delivery;
-        document.querySelector('#content-2 p').textContent = product.vaseLife;
-        document.title = `${product.name} - Fiori`;
+      if (!product) return;
+
+
+      const imgDiv = card.querySelector('.product-image');
+      if (!imgDiv) return;
+
+
+      imgDiv.style.backgroundImage = `url('${product.image}')`;
+      imgDiv.style.backgroundSize = 'cover';
+      imgDiv.style.backgroundPosition = 'center';
+      imgDiv.style.backgroundRepeat = 'no-repeat';
+    });
+  }
+
+
+  // ✅ Use addEventListener so we don't fight with cart.js or other scripts
+  window.addEventListener('load', () => {
+    loadProduct();
+    loadShopMoreImages();
+  });
+
+
+  // Star Rating Functions
+  function setRating(rating) {
+    userRating = rating;
+    updateStars(rating);
+    console.log('User rated:', rating, 'stars');
+  }
+
+
+  function hoverRating(rating) {
+    updateStars(rating);
+  }
+
+
+  function resetHover() {
+    updateStars(userRating);
+  }
+
+
+  function updateStars(rating) {
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star, index) => {
+      if (index < rating) {
+        star.setAttribute('fill', '#FFD700');
+      } else {
+        star.setAttribute('fill', '#717171');
       }
-    }
+    });
+  }
 
-    // Initialize on page load
-    window.onload = function() {
-      loadProduct();
-    };
 
-    // Add to cart function
-    function addToCartFromDetail() {
-      const productId = getProductId();
-      const quantity = parseInt(document.getElementById('quantity').textContent);
-      
-      const product = products[productId];
-      
-      if (product && typeof cart !== 'undefined') {
-        cart.addItem({
-          id: productId,
-          name: product.name,
-          price: product.price,
-          quantity: quantity
-        });
-        
-        openCart();
-      }
-    }
+  // Quantity Functions
+  function increaseQty() {
+    qty++;
+    document.getElementById('quantity').textContent = qty;
+  }
 
-    // Star Rating Functions
-    function setRating(rating) {
-      userRating = rating;
-      updateStars(rating);
-      console.log('User rated:', rating, 'stars');
-    }
 
-    function hoverRating(rating) {
-      updateStars(rating);
-    }
-
-    function resetHover() {
-      updateStars(userRating);
-    }
-
-    function updateStars(rating) {
-      const stars = document.querySelectorAll('.star');
-      stars.forEach((star, index) => {
-        if (index < rating) {
-          star.setAttribute('fill', '#FFD700');
-        } else {
-          star.setAttribute('fill', '#717171');
-        }
-      });
-    }
-
-    // Quantity Functions
-    function increaseQty() {
-      qty++;
+  function decreaseQty() {
+    if (qty > 1) {
+      qty--;
       document.getElementById('quantity').textContent = qty;
     }
+  }
 
-    function decreaseQty() {
-      if (qty > 1) {
-        qty--;
-        document.getElementById('quantity').textContent = qty;
-      }
-    }
 
-    // Accordion Function
-    function toggleAccordion(index) {
-      const content = document.getElementById(`content-${index}`);
-      const icon = document.getElementById(`icon-${index}`);
-      
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-        icon.classList.remove('open');
-      } else {
-        document.querySelectorAll('.accordion-content').forEach((item, i) => {
-          if (i !== index) {
-            item.style.maxHeight = null;
-            document.getElementById(`icon-${i}`).classList.remove('open');
-          }
-        });
-        
-        content.style.maxHeight = content.scrollHeight + "px";
-        icon.classList.add('open');
-      }
+  // Accordion Function
+  function toggleAccordion(index) {
+    const content = document.getElementById(`content-${index}`);
+    const icon = document.getElementById(`icon-${index}`);
+   
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+      icon.classList.remove('open');
+    } else {
+      document.querySelectorAll('.accordion-content').forEach((item, i) => {
+        if (i !== index) {
+          item.style.maxHeight = null;
+          document.getElementById(`icon-${i}`).classList.remove('open');
+        }
+      });
+     
+      content.style.maxHeight = content.scrollHeight + "px";
+      icon.classList.add('open');
     }
+  }
 
-    // Navigation Functions
-    function navigateTo(section) {
-      console.log('Navigating to:', section);
-      if (section === 'catalog') {
-        window.location.href = 'catalogue.html';
-      } else {
-        window.location.href = 'index.html';
-      }
-    }
 
-    function goToProduct(productId) {
-      window.location.href = `product-detail.html?id=${productId}`;
+  // Navigation Functions
+  function navigateTo(section) {
+    console.log('Navigating to:', section);
+    if (section === 'catalog') {
+      window.location.href = 'catalogue.html';
+    } else {
+      window.location.href = 'index.html';
     }
-  </script>
+  }
+
+
+  function goToProduct(productId) {
+    window.location.href = `product-detail.html?id=${productId}`;
+  }
+</script>
 </body>
 </html>
