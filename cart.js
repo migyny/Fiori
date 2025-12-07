@@ -195,7 +195,11 @@ function checkout() {
     return;
   }
   
-  alert(`Checkout - Total: $${cart.getTotal().toFixed(2)}\n\nThis would redirect to checkout page.`);
+  //save latest cart's status
+  cart.saveCart();
+  
+  window.location.href = "checkout.html";
+  //alert(`Checkout - Total: $${cart.getTotal().toFixed(2)}\n\nThis would redirect to checkout page.`);
   // Here you would redirect to checkout page or process payment
 }
 
