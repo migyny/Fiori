@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!-- index.html -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../CSS/index.css">
+<title>Fiori</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rosarivo:ital@0;1&family=Public+Sans:wght@300;400;500;700&family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../CSS/cart.css">
+<script src="../Javascript/search.js"></script>
+</head>
+<body>
+  <!-- Top Banner -->
+  <div class="top-banner">
+    Free Same Day Delivery for Orders Over $44.99. *Exclusions Apply.
+  </div>
+  <!-- cart -->
+  <script src="../Javascript/cart.js"></script>
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <div class="logo" style="cursor: pointer;">Fiori</div>
+      <div class="nav-buttons">
+        <button class="nav-button" onclick="navigateTo('best-sellers')">Best Sellers</button>
+        <button class="nav-button" onclick="navigateTo('occasion')">Occasion</button>
+        <button class="nav-button" onclick="navigateTo('seasonal')">Seasonal</button>
+        <button class="nav-button" onclick="navigateTo('diy')">DIY Bouquets</button>
+        <button class="nav-button" onclick="navigateTo('ai')">Build With AI</button>
+        <button class="nav-button" onclick="location.href='catalogue.html'">Full Catalog</button>
+      </div>
+    </div>
+    <div class="header-icons">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      </svg>
+      <div class="account-wrapper" style="display:flex; align-items:center; cursor:pointer;">
+  <svg class="icon" id="account-button" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" width="30" height="30">
+    <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+  </svg>
+  <span id="account-text" style="margin-left:5px; font-size:14px; color:white;"></span>
+</div>
+      <div class="cart-icon-wrapper" onclick="openCart()" style="cursor: pointer;">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+    <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+  </svg>
+  <span id="cart-badge">0</span>
+</div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-card">
+      <div class="hero-title">Fresh Flowers.</div>
+      <div class="hero-subtitle">Hand-picked for any occasion. Shop Now!</div>
+      <button class="catalog-button" onclick="location.href='catalogue.html'">Full Catalog</button>
+    </div>
+  </div>
+
+  <!-- Products Section -->
+  <div class="products-section">
+    <h2 class="section-title">Shop Our Fall Favorites!</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-image1"></div>
+        <div class="quick-view">Quick view</div>
+        <div class="product-name">Dark Fuchsia Bouquet</div>
+        <div class="product-price">
+          <span class="price-label">FROM</span>
+          <span class="price-value">$55</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image2"></div>
+        <div class="quick-view">Quick view</div>
+        <div class="product-name">Autumn Sunflower Bouquet</div>
+        <div class="product-price">
+          <span class="price-label">FROM</span>
+          <span class="price-value">$65</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image3"></div>
+        <div class="quick-view">Quick view</div>
+        <div class="product-name">Red Assorted Bouquet</div>
+        <div class="product-price">
+          <span class="price-label">FROM</span>
+          <span class="price-value">$45</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Store Info Section -->
+  <div class="store-section">
+    <div class="store-image">
+      <div class="store-overlay"></div>
+    </div>
+    <div class="store-info">
+      <div class="store-title">OUR STORE</div>
+      <div class="store-address">Fiori / Staten Island NY</div>
+      <div class="store-hours">
+        Monday - Thursday 9am-5pm<br/>
+        Friday - Saturday 11am-7pm  Sun - Closed
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Media Section -->
+  <div class="social-section">
+    <h2 class="social-title">Follow Us on Social Media</h2>
+    <div class="social-grid">
+      <div class="social-card1">
+        <div class="social-overlay"></div>
+      </div>
+      <div class="social-card2">
+        <div class="social-overlay"></div>
+      </div>
+      <div class="social-card3">
+        <div class="social-overlay"></div>
+      </div>
+    </div>
+    <button class="follow-button">Follow Us</button>
+  </div>
+
+  <!-- Newsletter Section -->
+  <div class="newsletter-section">
+    <div class="newsletter-title">Get Updates From Fiori</div>
+    <div class="newsletter-text">
+      Sign up to hear about the newest offers, promotions, and latest products from our shop today!!
+    </div>
+    <div class="newsletter-form">
+      <input type="email" class="email-input" placeholder="Enter email address">
+      <button class="signup-button">SIGN UP</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">Fiori</div>
+        <div class="social-icons">
+          <div class="social-icon"></div>
+          <div class="social-icon"></div>
+          <div class="social-icon"></div>
+          <div class="social-icon"></div>
+          <div class="social-icon"></div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <div class="footer-column-title">Resources</div>
+          <a class="footer-link">About Us</a>
+          <a class="footer-link">Event</a>
+        </div>
+        <div class="footer-column">
+          <div class="footer-column-title">Company</div>
+          <a class="footer-link">Media</a>
+          <a class="footer-link">Blog</a>
+          <a class="footer-link">Pricing</a>
+        </div>
+        <div class="footer-column">
+          <div class="footer-column-title">Contact Us</div>
+          <a class="footer-link">Terms</a>
+          <a class="footer-link">Privacy</a>
+          <a class="footer-link">Support</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Fiori SI, NY. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    function navigateTo(section) {
+      console.log('Navigating to:', section);
+      // Add your navigation logic here
+      alert('Navigating to: ' + section);
+    }
+  </script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Check if user is logged in
+  const user = JSON.parse(localStorage.getItem("fioriUser"));
+  
+  // Update account text if user is logged in
+  const accountText = document.getElementById("account-text");
+  if (accountText && user) {
+    accountText.textContent = user.name || "Account";
+  }
+  
+  // Add click handler to account wrapper
+  const accountWrapper = document.querySelector(".account-wrapper");
+  if (accountWrapper) {
+    accountWrapper.addEventListener("click", () => {
+      if (user) {
+        window.location.href = "account.html";
+      } else {
+        window.location.href = "sign_up.html";
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
